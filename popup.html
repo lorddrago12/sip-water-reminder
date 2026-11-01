@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sip</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.5C12 2.5 5 10.5 5 15.2a7 7 0 0 0 14 0C19 10.5 12 2.5 12 2.5Z" fill="#fff"/></svg>
+      </span>
+      <h1>Sip</h1>
+    </div>
+    <label class="switch" title="Reminders on or off">
+      <input type="checkbox" id="enabled" aria-label="Reminders on or off"><i></i>
+    </label>
+  </header>
+
+  <div id="home">
+    <section class="stats">
+      <div class="stat"><p class="k">Today</p><p class="v" id="sToday">0/8</p><p class="s">glasses</p></div>
+      <div class="stat"><p class="k">Next</p><p class="v" id="sNext">-</p><p class="s">reminder</p></div>
+      <div class="stat"><p class="k">Streak</p><p class="v" id="sStreak">0</p><p class="s">days at goal</p></div>
+    </section>
+
+    <p class="warn" id="warn" hidden></p>
+
+    <section class="block">
+      <h2>Today's progress</h2>
+      <div class="segs" id="segs" role="progressbar" aria-label="Glasses today" aria-valuemin="0"></div>
+      <p class="cap" id="cap"></p>
+      <button id="drink" class="drink">I drank</button>
+    </section>
+
+    <section class="block">
+      <h2>Previous days</h2>
+      <ul class="days" id="days"></ul>
+    </section>
+  </div>
+
+  <div id="prefs" hidden>
+    <section class="block">
+      <h2>Settings</h2>
+      <div class="group">
+        <label class="row"><span>Remind every</span>
+          <span class="val"><input type="number" id="interval" min="1" max="240"> min</span></label>
+        <label class="row"><span>Daily goal</span>
+          <span class="val"><input type="number" id="goal" min="1" max="30"> glasses</span></label>
+        <label class="row"><span>Reminder style</span>
+          <select id="style"><option value="notification">Notification</option><option value="window">Small window</option></select></label>
+        <div class="row"><span>Test reminder</span><button id="test" class="ghost">Send</button></div>
+      </div>
+      <p class="hint" id="testMsg"></p>
+    </section>
+  </div>
+
+  <footer>
+    <span class="status"><i class="dot" id="dot"></i><span id="status"></span></span>
+    <button id="toggle" class="ghost">Settings</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
